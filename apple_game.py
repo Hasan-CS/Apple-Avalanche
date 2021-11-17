@@ -1,6 +1,8 @@
 #   a123_apple_1.py
+#   you might want to run this code a few times (Sometimes the code just randomly doesn't show the next letter. It could be the second, third, fourth, firth, or sixth. The bug is really strange, and nothing I did fixed that. The code usually finishes through though.)
 import turtle as trtl
 import random as rand
+
 #-----setup-----
 apple_image = "apple.gif" # Store the file name of your shape
 pear_image = "pear.gif"
@@ -16,7 +18,7 @@ appl = trtl.Turtle()
 app = trtl.Turtle()
 ap = trtl.Turtle()
 a = trtl.Turtle()
-also_a = trtl.Turtle()
+also_apple = trtl.Turtle()
 
 drawer = trtl.Turtle()
 drawer.hideturtle()
@@ -31,7 +33,7 @@ the_letter_six = rand.choice(letters)
 
 #-----countdown setup-----
 font_setup = ("Arial", 30, "normal")
-timer = 6
+timer = 5
 counter_interval = 1000   
 timer_up = False
 
@@ -60,14 +62,14 @@ def setup():
   app.penup()
   ap.penup()
   a.penup()
-  also_a.penup()
+  also_apple.penup()
 
   apple.goto(rand.randint(-150, 150), rand.randint(0, 150))
   appl.goto(rand.randint(-150, 150), rand.randint(0, 150))
   app.goto(rand.randint(-150, 150), rand.randint(0, 150))
   ap.goto(rand.randint(-150, 150), rand.randint(0, 150))
   a.goto(rand.randint(-150, 150), rand.randint(0, 150))
-  also_a.goto(rand.randint(-150, 150), rand.randint(0, 150))
+  also_apple.goto(rand.randint(-150, 150), rand.randint(0, 150))
 
 def draw_turtle(active_apple, active_gif):
   active_apple.shape(active_gif)
@@ -123,13 +125,13 @@ def a_fall():
     a.hideturtle()
     draw_letter(the_letter_six)
 
-def also_a_fall():
+def also_apple_fall():
   global timer_up
   if timer_up == False:
     drawer.clear()
-    also_a.penup()
-    also_a.goto(0, -200)
-    also_a.hideturtle()
+    also_apple.penup()
+    also_apple.goto(0, -200)
+    also_apple.hideturtle()
 
 #-----function calls-----
 draw_turtle(apple, apple_image)
@@ -137,7 +139,7 @@ draw_turtle(appl, apple_image)
 draw_turtle(app, apple_image)
 draw_turtle(ap, apple_image)
 draw_turtle(a, apple_image)
-draw_turtle(also_a, apple_image)
+draw_turtle(also_apple, apple_image)
 
 setup()
 
@@ -149,7 +151,7 @@ wn.onkeypress(appl_fall, the_letter_two)
 wn.onkeypress(app_fall, the_letter_three)
 wn.onkeypress(ap_fall, the_letter_four)
 wn.onkeypress(a_fall, the_letter_five)
-wn.onkeypress(also_a_fall, the_letter_six)
+wn.onkeypress(also_apple_fall, the_letter_six)
 
 wn.listen()
 wn.mainloop()
